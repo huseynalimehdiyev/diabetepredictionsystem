@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background: #121212;
+            color: #ffffff;
+        }
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode p,
+        .dark-mode span,
+        .dark-mode div {
+            color: #000000;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; color: #333; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        .result-text { font-weight: bold; font-size: 1.2em; }
+        button { padding: 10px; background: #4CAF50; color: white; border: none; margin-top: 10px; cursor: pointer; width: 100%; }
+        button:hover { background: #45a049; }
+        a { display: block; margin-top: 20px; text-align: center; text-decoration: none; color: #333; }
+
+        /* Çap üçün gizlədilən bölmələr */
+        .print-section {
+            display: none;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+            .print-section {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Nəticə</h2>
+    <div class="result-text">
+         <p><strong>Diabet riski faizi:</strong> {{ probability }}%</p>
+        <p><strong>Status:</strong> {{ message }}</p>
+
+        <p><strong>Tarix:</strong> {{ date }}</p>
+    </div>
+
+    <button class="no-print" onclick="window.print()">Çap Et</button>
+
+    <div style="text-align:center; margin-top: 20px;">
+        <a href="/" style="text-decoration:none; padding:10px 20px; border:1px solid #ccc; border-radius:5px;">&larr; Geri qayıt</a>
+    </div>
+</div>
+
+<!-- Çap üçün giriş məlumatlarının gizlədilməsi -->
+<div class="print-section">
+    <h2>Giriş Məlumatları</h2>
+    <ul>
+        <li><strong>Number of Pregnancies:</strong> {{ pregnancies }}</li>
+<li><strong>Glucose Level:</strong> {{ glucose }}</li>
+        <li><strong>Blood Pressure:</strong> {{ blood_pressure }}</li>
+        <li><strong>Skin Thickness:</strong> {{ skin_thickness }}</li>
+        <li><strong>Insulin:</strong> {{ insulin }}</li>
+        <li><strong>Height (m):</strong> {{ height }}</li>
+        <li><strong>Weight (kg):</strong> {{ weight }}</li>
+        <li><strong>BMI:</strong> {{ bmi }}</li>
+        <li><strong>Diabetes Pedigree Function:</strong> {{ dpf }}</li>
+        <li><strong>Age:</strong> {{ age }}</li>
+
+    </ul>
+</div
+</body>
+<script>
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+
+</html>
